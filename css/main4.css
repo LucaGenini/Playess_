@@ -1,0 +1,827 @@
+/* ---------------------------------------------
+   Playess main4.css
+   Globale Farben, Gradients, Layout, Components
+   --------------------------------------------- */
+
+/* 1) Design Tokens */
+:root {
+    --color-white-soft: #F7EFEB;
+    --color-neutral-black: #29201A;
+    --color-secondary: #5F4533;
+    --color-primary: #B55722;
+    --color-middlebrown: #8F684D;
+    --color-accent: #EFB082;
+
+    --color-bg-main: var(--color-neutral-black);
+    --color-bg-card: var(--color-secondary);
+    --color-bg-button: var(--color-middlebrown);
+
+    --color-text-main: var(--color-white-soft);
+    --color-text-muted: rgba(247, 239, 235, 0.65);
+
+    --gradient-1: linear-gradient(90deg, #29201A 0%, #B55722 100%);
+    --gradient-2: linear-gradient(90deg, #B55722 0%, #EFB082 100%);
+    --gradient-3: linear-gradient(90deg, #F7EFEB 0%, #8F684D 100%);
+
+    --radius-base: 12px;
+    --radius-pill: 999px;
+
+    --btn-width: 327px;
+    --btn-height: 48px;
+
+    --container-width: 343px;
+
+    --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.45);
+    --page-padding: 24px;
+}
+
+/* 2) Grundlayout */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    display: flex;
+    flex-direction: column;
+}
+
+.app-screen {
+    min-height: 100vh;
+    padding: var(--page-padding);
+    padding-bottom: 140px; /* verhindert Ueberdeckung durch Bottom Nav */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 3) Utilities */
+.text-center { text-align: center; }
+.text-muted { color: var(--color-text-muted); }
+.text-cta-small { color: var(--color-accent); }
+
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-5 { margin-top: 24px; }
+
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-5 { margin-bottom: 24px; }
+
+/* Generic helper */
+.is-hidden { display: none !important; }
+
+/* 4) Buttons */
+.primary-btn,
+.btn-primary {
+    width: 100%;
+    height: 48px;
+    background-image: var(--gradient-2);
+    color: var(--color-white-soft);
+    border: none;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.primary-btn:active,
+.btn-primary:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* Kompakter Button fuer Search neben Input */
+.btn-compact {
+    width: auto;
+    padding: 0 14px;
+    white-space: nowrap;
+}
+
+/* 4.1) Formularfelder */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+    width: 100%;
+    height: 48px;
+    background: none;
+    border: 1px solid var(--color-white-soft);
+    border-radius: 12px;
+    padding: 0 14px;
+    color: var(--color-accent);
+    font-size: 12px;
+    font-weight: 500;
+    outline: none;
+    box-sizing: border-box;
+    display: block;
+    margin: 12px auto 0 auto;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 6px rgba(239, 176, 130, 0.5);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(247, 239, 235, 0.35);
+}
+
+textarea {
+    height: auto;
+    min-height: 96px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Checkbox Reset Fix */
+input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    appearance: auto !important;
+    opacity: 1 !important;
+
+    width: 16px;
+    height: 16px;
+
+    accent-color: var(--color-accent);
+}
+
+/* 5) Container */
+.container-narrow {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* 6) Startscreen */
+.start-body {
+    min-height: 100vh;
+    padding: var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-bg-main);
+}
+
+.start-top {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.logo-circle {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 16px auto;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: logo-spin 12s linear infinite;
+}
+
+.start-title {
+    line-height: 1.3;
+    padding: 0 12px;
+}
+
+.start-options {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 7) Hintergruende */
+.bg-startscreen {
+    background-image: url('/img/background-start.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-tutorial {
+    background-image: url('/img/playess_background.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 8) Dashboard */
+.dashboard-header {
+    margin-top: 40px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.dashboard-main {
+    margin-top: 24px;
+}
+
+.dashboard-panel {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: var(--radius-base);
+    background-color: rgba(95, 69, 51, 0.65);
+    box-sizing: border-box;
+}
+
+/* Tabs */
+.mode-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.mode-tab {
+    flex: 1;
+    height: 31px;
+    border-radius: 12px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
+    transition: transform 0.1s ease, opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.mode-tab--active {
+    background-image: var(--gradient-2);
+    color: var(--color-neutral-black);
+    box-shadow: var(--shadow-soft);
+}
+
+.mode-tab:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* Game Cards */
+.game-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.game-card {
+    width: 100%;
+    max-width: 308px;
+    margin: 0 auto;
+    padding: 14px 16px;
+    border-radius: var(--radius-base);
+    background-image: var(--gradient-1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.game-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+}
+
+.game-card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.game-card-subtitle {
+    font-size: 12px;
+    margin: 0;
+    color: var(--color-text-muted);
+}
+
+/* 9) Bottom Navigation */
+.bottom-nav {
+    width: 100%;
+    height: 99px;
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav-item {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+    color: var(--color-accent);
+}
+
+.bottom-nav-item--active {
+    opacity: 1;
+    background-color: var(--color-middlebrown);
+}
+
+.bottom-nav-item:active {
+    transform: scale(0.95);
+}
+
+/* 10) Game Mode Components */
+.open-cover-wrapper {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.open-cover,
+.open-cover-reveal {
+    height: 169px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: rgba(41, 32, 26, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.open-cover-img {
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.open-cover-caption {
+    margin-top: 6px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.hidden { display: none; }
+
+/* Player unterhalb des Covers */
+.openmode-player {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.player-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Formbereich */
+.openmode-form { gap: 16px; }
+
+.open-field-group label {
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.open-field-delta {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Input Feedback */
+.input-correct { border-color: #22c55e !important; }
+.input-wrong   { border-color: #ef4444 !important; }
+
+/* Icons */
+.icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* 11) Leaderboard Kacheln */
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.leaderboard-row {
+    background: var(--color-middlebrown);
+    border-radius: 12px;
+    padding: 10px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 74px;
+    transition: background 0.2s;
+}
+
+.leaderboard-row.self {
+    background: var(--color-primary);
+}
+
+.leaderboard-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.leaderboard-rank {
+    font-size: 18px;
+    font-weight: 600;
+    width: 20px;
+    text-align: center;
+}
+
+.leaderboard-avatar {
+    width: 56px;
+    height: 56px;
+    position: relative;
+}
+
+.lb-character-wrapper {
+    position: relative;
+    width: 56px;
+    height: 56px;
+}
+
+.lb-character-base {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.lb-character-shirt-cover {
+    position: absolute;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    z-index: 2;
+    top: 72%;
+}
+
+.lb-character-shirt-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.leaderboard-userinfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboard-username {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+
+    white-space: normal;        /* erlaubt Umbruch */
+    overflow-wrap: anywhere;   /* bricht auch lange Namen sauber */
+    word-break: break-word;    /* Fallback für ältere Browser */
+}
+
+.leaderboard-meta {
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+.leaderboard-score {
+    text-align: right;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.leaderboard-score span {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+/* Empty State */
+.leaderboard-empty {
+    text-align: center;
+    padding: 25px 10px;
+    color: var(--color-text-muted);
+}
+
+/* History Headline */
+.openmode-history { padding-top: 20px; }
+
+.history-title {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+/* History Cover Avatar */
+.leaderboard-avatar img.leaderboard-avatar-cover {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Apple Music Button */
+.apple-music-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(247, 239, 235, 0.6);
+    color: var(--color-white-soft);
+    background-image: var(--gradient-2);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+}
+
+.apple-music-btn:hover { opacity: 0.95; }
+
+.apple-music-btn--disabled {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(247, 239, 235, 0.3);
+    box-shadow: none;
+    cursor: default;
+}
+
+/* Disclaimer Block */
+.openmode-disclaimer {
+    margin-top: 16px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background-color: rgba(41, 32, 26, 0.85);
+    font-size: 10px;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+}
+
+/* 12) Album Cover Guess Blur + Countdown */
+.cover-blur-animate {
+    animation: coverDeBlur 30s linear forwards;
+}
+
+@keyframes coverDeBlur {
+    0%   { filter: blur(18px); }
+    25%  { filter: blur(14px); }
+    50%  { filter: blur(9px); }
+    75%  { filter: blur(5px); }
+    100% { filter: blur(0); }
+}
+
+.cover-countdown-wrapper {
+    margin-top: 4px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    align-items: baseline;
+}
+
+.cover-countdown-label { opacity: 0.7; }
+.cover-countdown-value { font-weight: 700; }
+
+/* 13) ELO Animation Klassen */
+.elo-up   { animation: eloUp 1s ease-out; }
+.elo-down { animation: eloDown 1s ease-out; }
+
+@keyframes eloUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); color: #4ade80; }
+    100% { transform: scale(1); }
+}
+
+@keyframes eloDown {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.94); color: #f97373; }
+    100% { transform: scale(1); }
+}
+
+/* 14) Signup und Profile Customisation Styles (aus signup.php inline) */
+.character-preview-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.character-wrapper {
+    position: relative;
+    width: 220px;
+}
+
+.character-base {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.character-shirt-cover {
+    position: absolute;
+    left: 50%;
+    width: 35%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    z-index: 2;
+}
+
+.character-wrapper.male .character-shirt-cover { top: 75%; }
+.character-wrapper.female .character-shirt-cover { top: 75%; }
+
+.character-shirt-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.character-options {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.character-option {
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-main);
+}
+
+.character-option input { display: none; }
+
+.character-option img {
+    width: 72px;
+    height: auto;
+    border-radius: 18px;
+    border: 2px solid transparent;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.character-option input:checked + img {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 12px rgba(239, 176, 130, 0.7);
+}
+
+.favorite-song-search-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+/* WICHTIG: Input in dieser Row soll nicht die globale 327px Breite erzwingen */
+.favorite-song-search-row input[type="text"] {
+    flex: 1;
+    width: auto;
+    margin: 0;
+}
+
+.favorite-song-search-row button {
+    white-space: nowrap;
+}
+
+.track-results {
+    margin-top: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    font-size: 12px;
+}
+
+.track-result-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.track-result-item img {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.track-result-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-result-title { font-weight: 600; }
+
+.track-result-artist {
+    color: var(--color-text-muted);
+    font-size: 11px;
+}
+
+/* 15) Signup Helper Layout Klassen (neu, aber nur Layout) */
+.signup-block {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.signup-block-title {
+    margin: 0 0 6px 0;
+}
+
+/* Center Wrapper fuer Buttons (ersetzt inline text-align) */
+.login-btn-wrapper--center {
+    margin-top: 18px;
+    text-align: center;
+}
+
+/* Alert Styles (ersetzt inline colors/margins) */
+.form-alert {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.form-alert--error {
+    color: #ff9b9b;
+}
+
+/* 16) Animation */
+@keyframes logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

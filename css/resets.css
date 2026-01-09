@@ -1,0 +1,85 @@
+/* ---------------------------------------------------
+   Playess – resets.css
+   Mobile First Reset für eine Web-App Umgebung
+   --------------------------------------------------- */
+
+/* 1) Basis Reset für alle Elemente */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2) HTML / Body */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;  /* wichtig für iOS Zoom Bugs */
+}
+
+body {
+    min-height: 100vh;
+    font-family: inherit;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3) Bilder & Medien */
+img, picture, video, canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 4) Links ohne Standardformatierung */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 5) Buttons neutralisieren */
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* 6) Inputs & Textareas */
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none; /* Mobile Safari Standard-Stile entfernen */
+}
+
+/* 7) Remove default outlines for clickable things */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+/* 8) Lists */
+ul, ol {
+    list-style: none;
+}
+
+/* 9) (Optional) Smooth Touch Feel */
+body {
+    touch-action: manipulation;
+}
+
+/* 10) Hide tap highlight on iOS & Android */
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

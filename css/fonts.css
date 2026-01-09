@@ -1,0 +1,87 @@
+/* ------------------------------------------------------
+   Playess – fonts.css
+   Enthält: Font-Imports + Font-Faces + Grundtypografie
+   ------------------------------------------------------ */
+
+/* 1) Google Fonts Import (Montserrat) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+/* 2) Lokale Font-Files (optional, falls später selbst gehostet) */
+/* Example Struktur: /assets/fonts/ */
+/*
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+         url('../fonts/Montserrat-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
+         url('../fonts/Montserrat-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url('../fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+         url('../fonts/Montserrat-ExtraBold.woff') format('woff');
+}
+*/
+
+/* 3) Typografische Grundzuweisung */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* 4) Headings laut Vorgabe ---------------------------------- */
+
+/* H1: Montserrat ExtraBold, 24px */
+h1,
+.h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* ExtraBold */
+    font-size: 24px;
+}
+
+/* H2: Montserrat Regular, 16px */
+h2,
+.h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* H3: Montserrat Regular, 14px */
+h3,
+.h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+/* H3: Montserrat Regular, 14px */
+h4,
+.h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* H4 (Buttons): Montserrat SemiBold, 12px */
+.h4-btn,
+button,
+.btn-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* SemiBold */
+    font-size: 12px;
+}
