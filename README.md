@@ -14,8 +14,7 @@ Interactive Song Guess Webapp
 10. [Learnings und Erkenntnisse](#learnings-und-erkenntnisse)
 11. [Arbeitsprozess](#arbeitsprozess)
 12. [Weiterentwicklung](#weiterentwicklung)
-13. [Figma](#figma)
-14. [Autor](#autor)
+13. [Autor](#autor)
 
 ---
 
