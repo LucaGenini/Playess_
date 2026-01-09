@@ -353,8 +353,6 @@ input[type="checkbox"] {
     left: 0;
     right: 0;
     z-index: 100;
-
-    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .bottom-nav-item {
